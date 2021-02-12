@@ -9,17 +9,21 @@ import com.wesleyvicen.cursomc.domain.Categoria;
 import com.wesleyvicen.cursomc.repositories.CategoriaRepository;
 import com.wesleyvicen.cursomc.services.exceptions.ObjectNotFoundException;
 
-
 @Service
 public class CategoriaService {
 
 	@Autowired
 	private CategoriaRepository repo;
-	
+
 	public Categoria buscar(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"Objeto Não encontrado! ID: "+ id + ", Tipo: "+ Categoria.class.getName())); 
+				"Objeto Não encontrado! ID: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
-	
+
+	public Categoria insert(Categoria obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
+
 }
