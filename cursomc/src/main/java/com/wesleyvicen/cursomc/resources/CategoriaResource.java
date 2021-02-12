@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wesleyvicen.cursomc.domain.Categoria;
 import com.wesleyvicen.cursomc.services.CategoriaService;
 
-import javassist.tools.rmi.ObjectNotFoundException;
-
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResource {
